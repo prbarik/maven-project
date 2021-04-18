@@ -4,7 +4,7 @@ pipeline {
         stage('scm checkout')
 {
             steps {
-                git branch: 'master', url: 'https://github.com/prbarik/maven-project.git'
+                git branch: 'test', url: 'https://github.com/prbarik/maven-project.git'
             }
 }
         stage('Build')
@@ -18,19 +18,19 @@ pipeline {
             steps {
                 nexusArtifactUploader artifacts:[
                     [
-                        artifactID: 'maven-project',
+                        artifactId: 'maven-project',
                         classifier: '',
-                        file: 'target/webapp-1.0-SNAPSHOT.war',
+                        file: '/var/jenkins_home/workspace/Hygiea-Build-Pipeline/webapp/target/webapp.war',
                         type: 'war'
                     ]
                 ],
-                credentialsID: 'Nexus',
-                groupID: 'com.example.maven-project',
-                nexusURL: '3.238.240.9:9001',
+                credentialsId: 'Nexus',
+                groupId: 'com.example.maven-project',
+                nexusUrl: '3.238.240.9:9001',
                 nexusVersion: 'nexus3',
-                rotocol: 'http',
-                repository: 'http://3.238.240.9:9001/repository/hygieia-release/',
-                version: '1.0-SNAPSHOT'
+                protocol: 'http',
+                repository: 'hygieia-release',
+                version: '1.0.0'
             }
         }
     }
