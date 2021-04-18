@@ -20,7 +20,7 @@ pipeline {
                     [
                         artifactId: 'maven-project',
                         classifier: '',
-                        file: 'target/webapp.war',
+                        file: '/var/jenkins_home/workspace/Hygiea-Build-Pipeline/webapp/target/webapp.war',
                         type: 'war'
                     ]
                 ],
@@ -29,7 +29,7 @@ pipeline {
                 nexusUrl: '3.238.240.9:9001',
                 nexusVersion: 'nexus3',
                 protocol: 'http',
-                repository: 'http://3.238.240.9:9001/repository/hygieia-release/',
+                repository: 'hygieia-release',
                 version: '1.0-SNAPSHOT'
             }
         }
