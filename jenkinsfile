@@ -18,21 +18,21 @@ pipeline {
             steps {
                 nexusArtifactUploader artifacts:[
                     [
-                        artifactId: 'maven-project',
-                        classifier: '', 
-                        file: 'target/Hygieia-Project-1.0.0.war', 
+                        artifactID: 'maven-project',
+                        classifier: '',
+                        file: 'target/webapp-1.0-SNAPSHOT.war',
                         type: 'war'
                     ]
                 ],
-                credentialsId: 'Nexus',
-                groupId: 'com.hygieia-project',
-                nexusUrl: '3.238.240.9:9001',
+                credentialsID: 'Nexus',
+                groupID: 'com.example.maven-project',
+                nexusURL: '3.238.240.9:9001',
                 nexusVersion: 'nexus3',
-                protocol: 'http',
-                repository: 'http://3.238.240.9:9001/repository/hygieia-release',
-                version: '1.0.0'
+                rotocol: 'http',
+                repository: 'http://3.238.240.9:9001/repository/hygieia-release/',
+                version: '1.0-SNAPSHOT'
             }
- }
+        }
     }
 }
 
