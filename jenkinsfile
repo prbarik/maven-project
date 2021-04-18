@@ -16,7 +16,7 @@ pipeline {
         stage('Upload war to Nexus')
  {
             steps {
-                nexusAritifactUploader artifacts:[
+                nexusArtifactUploader artifacts:[
                     [
                         artifactID: 'maven-project',
                         classifier: '', 
