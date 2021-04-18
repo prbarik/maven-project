@@ -7,6 +7,18 @@ pipeline {
                 git branch: 'test', url: 'https://github.com/prbarik/maven-project.git'
             }
 }
+        stage('Env Variables')
+        {
+            environment {
+                sonarqube = "/var/jenkins_home/sonar-scanner/sonar-scanner-3.3.0.1492-linux/bin"
+            }
+        }
+        stage('scanner')
+        {
+            steps {
+                sh script: 'sonarqube/sonar-scanner'
+            }
+        }
         stage('Build')
  {
             steps {
