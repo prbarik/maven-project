@@ -11,7 +11,6 @@ pipeline {
         {
             steps {
                 script {
-                def scannerHome = tool 'sonar-scanner';
                 withSonarQubeEnv("Sonar") {
                 sh "${tool("sonarqube")}/bin/sonar-scanner \
                 -Dsonar.projectKey=My:HygieiaProject \
