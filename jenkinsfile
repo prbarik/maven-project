@@ -10,15 +10,8 @@ pipeline {
         stage('scanner')
         {
             steps {
-                script {
-                withSonarQubeEnv("Sonar") {
-                sh "${tool("sonarqube")}/bin/sonar-scanner \
-                -Dsonar.projectKey=My:HygieiaProject \
-                -Dsonar.sources=. \
-                -Dsonar.host.url=http://http://3.238.240.9:9000 \
-                -Dsonar.login=3506734f5c803a69fa82d36368d63696596fde9c"
-                }
-                }
+                withSonarQubeEnv('Sonar') {
+                sh 'mvn clean package sonar:sonar'
             }
         }
         stage('Build')
