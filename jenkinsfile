@@ -10,6 +10,7 @@ pipeline {
         stage('scanner')
         {
             steps {
+                script {
                 def scannerHome = tool 'sonarqube';
                 withSonarQubeEnv("sonarqube-container") {
                 sh "${tool("sonarqube")}/bin/sonar-scanner \
@@ -17,6 +18,7 @@ pipeline {
                 -Dsonar.sources=. \
                 -Dsonar.host.url=http://http://3.238.240.9:9000 \
                 -Dsonar.login=3506734f5c803a69fa82d36368d63696596fde9c"
+                }
                 }
             }
         }
@@ -48,9 +50,3 @@ pipeline {
         }
     }
 }
-
-
-
-
-
-
