@@ -13,6 +13,7 @@ pipeline {
                 withSonarQubeEnv('Sonar') {
                 sh 'mvn clean package sonar:sonar'
             }
+           }
         }
         stage('Build')
  {
